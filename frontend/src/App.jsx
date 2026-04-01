@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import brandingImg from './assets/branding.png'
+import logoUniuv from './assets/logo-uniuv.png'
+import logoUnespar from './assets/logo-unespar.jpg'
 import './App.css'
 
 function App() {
@@ -14,7 +17,8 @@ function App() {
     <div className="page">
       <header className="barra">
         <div className="barra-logos">
-          <img src="/header-logos.png" alt="" />
+          <img src={logoUniuv} alt="" className="barra-img barra-uniuv" />
+          <img src={logoUnespar} alt="" className="barra-img barra-unespar" />
         </div>
         <nav className="barra-nav">
           <a href="#">Salas</a>
@@ -25,34 +29,15 @@ function App() {
 
       <main className="conteudo">
         <div className="lado-marca">
-          <div className="marca-bolha">
-            <img src="/branding.png" alt="" />
-          </div>
-          <div className="marca-uniuv" aria-hidden="true">
-            <svg viewBox="0 0 200 48" className="marca-arcos">
-              <path
-                d="M20 28 Q 100 -4 180 28"
-                fill="none"
-                stroke="rgba(255,255,255,0.95)"
-                strokeWidth="5"
-                strokeLinecap="round"
-              />
-              <path
-                d="M32 34 Q 100 8 168 34"
-                fill="none"
-                stroke="rgba(255,255,255,0.55)"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-            </svg>
-            <span className="marca-txt">Uniuv</span>
+          <div className="marca-wrap">
+            <img src={brandingImg} alt="" className="marca-branding" />
           </div>
         </div>
 
         <div className="lado-form">
           <div className="cartao">
             <div className="cartao-topo">
-              <img src="/header-logos.png" alt="" />
+              <img src={logoUnespar} alt="" className="unespar-marca-dagua" />
             </div>
             <form className="form" onSubmit={handleSubmit}>
               <h1 className="titulo">Login</h1>

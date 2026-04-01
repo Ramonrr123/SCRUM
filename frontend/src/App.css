@@ -1,40 +1,58 @@
 .page {
   min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: #ebf0f5;
+  overflow-x: hidden;
 }
 
 .barra {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 28px 12px;
+  padding: 18px 32px 14px;
   border-bottom: 1px solid #0a0a0a;
   background: #fff;
   flex-shrink: 0;
 }
 
-.barra-logos img {
+.barra-logos {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.barra-img {
   display: block;
-  height: 52px;
   width: auto;
-  max-width: min(320px, 42vw);
   object-fit: contain;
-  object-position: left center;
+}
+
+.barra-uniuv {
+  height: clamp(46px, 4.8vw, 64px);
+  mix-blend-mode: multiply;
+}
+
+.barra-unespar {
+  height: clamp(48px, 5.2vw, 68px);
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .barra-nav {
   display: flex;
-  gap: 28px;
+  gap: 30px;
   align-items: center;
 }
 
 .barra-nav a {
   color: #1a2b56;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 600;
 }
 
 .barra-nav a:hover {
@@ -44,109 +62,101 @@
 .conteudo {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(440px, 0.88fr);
   min-height: 0;
-  background: linear-gradient(105deg, #152a6e 0%, #156f7a 42%, #12b8a8 100%);
+  background: linear-gradient(100deg, #1a3d7a 0%, #1a6b7a 38%, #1eb8a8 100%);
 }
 
 .lado-marca {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 32px 48px;
-  gap: 20px;
+  padding: 36px 28px 48px 48px;
 }
 
-.marca-bolha {
-  max-width: 340px;
+.marca-wrap {
+  max-width: min(680px, 96vw);
   width: 100%;
 }
 
-.marca-bolha img {
+.marca-branding {
   width: 100%;
   height: auto;
   display: block;
-  filter: brightness(0) invert(1);
-  opacity: 0.92;
-}
-
-.marca-uniuv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 8px;
-}
-
-.marca-arcos {
-  width: min(220px, 55vw);
-  height: auto;
-  margin-bottom: -6px;
-}
-
-.marca-txt {
-  font-size: clamp(2.5rem, 7vw, 3.75rem);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.02em;
-  font-family: inherit;
+  filter: contrast(1.05);
 }
 
 .lado-form {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 36px 28px 48px;
+  padding: 32px 40px 48px;
 }
 
 .cartao {
   width: 100%;
-  max-width: 400px;
+  max-width: 560px;
+  min-height: min(78vh, 820px);
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .cartao-topo {
-  background: #e8edf5;
-  padding: 18px 20px;
+  flex: 0 0 auto;
+  min-height: min(26vh, 240px);
+  background: #e2e8f2;
+  padding: 32px 36px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.cartao-topo img {
-  height: 44px;
+.unespar-marca-dagua {
+  height: auto;
   width: auto;
-  max-width: 100%;
+  max-width: 96%;
+  max-height: min(26vh, 260px);
   object-fit: contain;
+  mix-blend-mode: multiply;
+  opacity: 1;
+  filter: contrast(1.12) saturate(1.12);
 }
 
 .form {
-  padding: 26px 28px 30px;
-  text-align: left;
+  flex: 1;
+  padding: 36px 40px 44px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .titulo {
-  margin: 0 0 22px;
-  font-size: 1.35rem;
+  margin: 0 0 28px;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #111;
+  text-align: center;
 }
 
 .campo {
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
+  text-align: left;
 }
 
 .campo input {
   width: 100%;
   box-sizing: border-box;
-  padding: 11px 12px;
-  font-size: 15px;
+  padding: 15px 16px;
+  font-size: 16px;
   border: 1px solid #c5cad6;
-  border-radius: 4px;
+  border-radius: 6px;
   background: #fff;
   color: #111;
 }
@@ -158,34 +168,35 @@
 .campo input:focus {
   outline: none;
   border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
 }
 
 .lembrar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 10px;
+  font-size: 15px;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   cursor: pointer;
+  text-align: left;
 }
 
 .lembrar input {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   accent-color: #2563eb;
 }
 
 .btn {
   width: 100%;
-  padding: 12px 16px;
-  font-size: 16px;
+  padding: 16px 18px;
+  font-size: 17px;
   font-weight: 600;
   color: #fff;
   background: #2563eb;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -196,8 +207,8 @@
 .esqueci {
   display: block;
   text-align: center;
-  margin-top: 18px;
-  font-size: 14px;
+  margin-top: 22px;
+  font-size: 15px;
   color: #2563eb;
   text-decoration: none;
 }
@@ -206,26 +217,34 @@
   text-decoration: underline;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 960px) {
+  .barra {
+    padding: 14px 22px 12px;
+  }
+
+  .barra-nav {
+    gap: 20px;
+  }
+
   .conteudo {
     grid-template-columns: 1fr;
   }
 
   .lado-marca {
-    padding: 32px 20px 16px;
-    min-height: 200px;
-  }
-
-  .marca-bolha {
-    max-width: 260px;
-  }
-
-  .marca-txt {
-    font-size: 2.2rem;
+    padding: 28px 20px 12px;
   }
 
   .lado-form {
-    padding: 8px 20px 40px;
+    padding: 12px 24px 40px;
+  }
+
+  .cartao {
+    min-height: auto;
+    max-width: 560px;
+  }
+
+  .cartao-topo {
+    min-height: 140px;
   }
 }
 
@@ -234,11 +253,33 @@
     flex-direction: column;
     gap: 14px;
     align-items: flex-start;
-    padding: 12px 16px;
+    padding: 12px 16px 10px;
+  }
+
+  .barra-logos {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+
+  .barra-uniuv {
+    height: 42px;
+  }
+
+  .barra-unespar {
+    height: 46px;
+    max-width: 120px;
   }
 
   .barra-nav {
     flex-wrap: wrap;
     gap: 16px 20px;
+  }
+
+  .barra-nav a {
+    font-size: 15px;
+  }
+
+  .form {
+    padding: 28px 22px 36px;
   }
 }
